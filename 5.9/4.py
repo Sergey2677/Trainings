@@ -24,8 +24,5 @@ lst_in = [
 A = [[row[i] for row in lst_in] for i in range(len(lst_in[0]))]
 
 for row in A:
-<<<<<<< HEAD
     print(*row)
-=======
-    print(*row)
->>>>>>> origin/master
+
