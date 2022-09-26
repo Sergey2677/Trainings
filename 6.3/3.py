@@ -12,6 +12,6 @@
 
 t = (3.4, -56.7)
 
-t += tuple(int(i) for i in input().split())
+t += tuple(input().split())
 
 print(t)
