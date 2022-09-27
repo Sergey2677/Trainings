@@ -15,4 +15,4 @@ d = {}
 for i in lst:
     d.setdefault(i[:2], []).append(i)
 
-print(*sorted(d.items())
+print(*sorted(d.items()))
