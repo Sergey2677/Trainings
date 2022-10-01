@@ -1,0 +1,1 @@
+get_sq = lambda i: i * i
