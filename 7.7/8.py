@@ -10,23 +10,37 @@
 # Sample Output:
 # -6 0 1 1 3 8 11
 
-# n = list(map(int, input().split()))
+# put your python code here
+
+lst = list(map(int, input().split()))
 
 
-lst = [1,2,3,4,5,6,7,8]
+def merge_two_lists(first_lst, second_lst):
+    F = len(first_lst)
+    S = len(second_lst)
+    merged_list = []
+    i = 0
+    j = 0
+    while (i < F) and (j < S):
+        if first_lst[i] > second_lst[j]:
+            merged_list.append(second_lst[j])
+            j += 1
+        else:
+            merged_list.append(first_lst[i])
+            i += 1
+    merged_list += first_lst[i:] + second_lst[j:]
+    return merged_list
 
-def conc(lst, l=[]):
-    if len(lst) > 1:
-        mid = len(lst) // 2
-        lefthalf = lst[:mid]
-        righthalf = lst[mid:]
+def split_and_merge_list(lst):
+    mid = len(lst) // 2
+    righthalf = lst[:mid]     # деление массива на два примерно равной длины
+    lefthalf = lst[mid:]
 
-        conc(lefthalf)
-        conc(righthalf)
+    if len(righthalf) > 1: # если длина 1-го списка больше 1, то делим дальше
+        righthalf = split_and_merge_list(righthalf)
+    if len(lefthalf) > 1: # если длина 2-го списка больше 1, то делим дальше
+        lefthalf = split_and_merge_list(lefthalf)
 
-    if l == 0:
-        l.append(*lst)
-    else:
-        for 
+    return merge_two_lists(righthalf, lefthalf)   # слияние двух отсортированных списков в один
 
-    return l
+print(*split_and_merge_list(lst))
